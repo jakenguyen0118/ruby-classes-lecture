@@ -338,9 +338,8 @@ person.greeting
 
 That's it. As you can see, attr_accessor defines both the getter and the setter. 
 
-### Note :astonished:
-
-attr_accessor is used when you want to have both a setter and getter defined for you. attr_writer is rarely used as there aren't many cases when you want a class to write to an instance variable but not have access to it. attr_reader is very commonly used to provide access to an instance variable but not allow it to be changed directly.
+**Note:**
+> attr_accessor is used when you want to have both a setter and getter defined for you. attr_writer is rarely used as there aren't many cases when you want a class to write to an instance variable but not have access to it. attr_reader is very commonly used to provide access to an instance variable but not allow it to be changed directly.
 
 ## Questions?
 <p>
