@@ -181,6 +181,9 @@ my_house.open_doors
 your_house.close_door
 ```
 
+#### On your own
+- Try calling `open_doors` on the `your_house` instance
+
 <p align="center">
     <img src="images/classes1-img4.png" width="700">
     <br>
@@ -227,6 +230,11 @@ suresh_house.set_address("444, New York, NY")
 p casey_house.get_address
 p suresh_house.get_address
 ```
+
+
+#### On your own
+- Can you set and get the owner of `casey_house`?
+
 
 ## Constructors
 
