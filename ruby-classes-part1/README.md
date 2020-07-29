@@ -206,11 +206,11 @@ class House
   end
 
   def set_owner(owner)
-    @this_owner = owner
+    @this_owner_name = owner
   end
 
   def get_owner
-    @this_owner
+    @this_owner_name
   end
 
   def get_address
