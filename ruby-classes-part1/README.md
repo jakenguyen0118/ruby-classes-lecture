@@ -14,6 +14,74 @@
 One of the defining attributes of the Ruby programming language, in addition to readability, is how it implements object-oriented programming (OOP) techniques.
 OOP facilitates writing code in a way that allows you to think about, and model, the concepts that you are working with in your program.
 
+# Framing (5 min / 0:10)
+
+The earliest computer programs were written in an imperative style. The programs
+were a series of instructions that changed a program's state. Data was loaded
+into the computer, the program ran and manipulated the data, and some output was
+produced. The first JavaScript programs we wrote followed this imperative style.
+
+The way that we sometimes think about programming follows this imperative style.
+Have you ever heard of the example of writing a program for a computer to make a
+peanut-butter and jelly sandwich? Part of Harvard's intro to computer science
+class is having students write a program to tell a computer to make a
+peanut-butter and jelly sandwich.
+
+![Harvard CS 50 PB & J](https://i.ytimg.com/vi/YB62fSOX-PA/maxresdefault.jpg)
+
+The message is two part: programming is communicating instructions to a computer
+and these instructions should follow the format of a recipe. That
+programming-as-a-recipe style of thinking is imperative programming and it's
+wrong. That's not what we want to do. We don't have time for that.
+
+Large applications written in an imperative style become confusing to build and
+maintain. To consider the current state of our application, we need to consider
+all of code that has run so far. That becomes increasingly difficult as the
+application grows.
+
+> [Good article explaining the difference between imperative and declarative programming](https://tylermcginnis.com/imperative-vs-declarative-programming/)
+
+## What is Object Oriented Programming (10 min / 0:20)
+
+Object oriented programming is a paradigm of Software Engineering that attempts
+to solve the problems of building applications imperatively by organizing
+applications into discrete units, called objects. Rather than imperatively
+describe everything we want our application to do, in OOP we define objects that
+represent our understanding of the different parts of our application, what
+information describes those parts and what behavior those parts have.
+
+![](https://simplesnippets.tech/wp-content/uploads/2018/03/java-introduction-to-Object-Oriented-Programming.jpg)
+
+> Source:
+> [Simple Snippets](https://simplesnippets.tech/java-introduction-to-object-oriented-programming-oop/)
+
+Every object stores and manages any state or data relevant to itself internally.
+We almost always have many instances of a type of object.
+
+We use methods to initialize, modify, or act on an objects' internal state.
+
+Because these methods will be the same across all instances of a type of object,
+we define a **single class** with all of this behavior described in one place.
+
+We then use that class to instantiate as many instances (objects) of the class
+as we need.
+
+Object oriented programming gives use three major benefits:
+
+- **Encapsulation**: The complexity of our objects is hidden and a user can
+  interact with a well defined set of methods. We can redefine internal behavior
+  without changing anything externally - a huge benefit for refactoring.
+- **Modularity**: Because the interface (set of methods) for an object is well
+  defined, it is easy to exchange one object for another and reorganize objects
+  without breaking them.
+- **Inheritance**: Object Oriented design lets certain classes inherit from, or
+  borrow the behavior of another, more general class. The inheriting class can
+  add and overwrite inherited methods.
+
+You can think of an object as a little machine: it has displays you can read and
+buttons you can push. When you write an object-oriented application, you are
+modeling the entire program as the interactions of these machines.
+
 ## Object
 
 In object-oriented programming, the fundamental unit is the object. An object is an entity that serves as a container for data and also controls access to the data. Associated with an object is a set of attributes, which are essentially no more than variables belonging to the object. Also associated with an object is a set of functions that provide an interface to the functionality of the object, called methods.
