@@ -6,7 +6,7 @@
 
 - Work with Ruby classes
 - Use getter and setter methods in Ruby
-- Demonstrate how to implement OOP techniques such as inheritance
+- Demonstrate how to implement OOP techniques such as inheritance and polymorphism
 
 ## OOP
 
