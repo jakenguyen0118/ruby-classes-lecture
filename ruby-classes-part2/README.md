@@ -146,6 +146,11 @@ suresh.print_info
 casey.print_info
 ```
 
+### YOUR TURN
+- Add a Class variable to the `Vehicle` class called factory
+- Add a method called `print_factory` to the `Vehicle` class that prints "This vehicle was made in #{@@factory}"
+- Invoke `print_factory`on `your_truck`
+
 ## Class Methods
 
 A class method is a method that is associated with a class (and with a module in Ruby), not with an instance of a class. You can invoke class methods by prefixing the name of the method with the name of the class to which it belongs, such as to Math.sqrt(36). Class methods are also called static methods.
@@ -227,6 +232,10 @@ my_recipe.cook
 - Here the Child class (`FishRecipe`) inherits from the Parent class (`Recipe`).
 - The child class overrides the Parent class cook method.
 - Within the Child class cook method, we call super which will call the cook method from the Parent class Recipe.
+
+### YOUR TURN
+- Add a method to your `Car` class called `sound_horn` that extends the behavior of `sound_horn`
+- Invoke `sound_horn` on your instance of the `Car` class and make sure it works!
 
 ## Ta-da moment 🎉
 
@@ -339,6 +348,12 @@ person.greeting
 ````
 
 That's it. As you can see, attr_accessor defines both the getter and the setter. 
+
+
+### YOUR TURN
+- Update the `Vehicle` class to have an `attr_accessor` method for `this_odometer`
+- Try setting and getting the `this_odometer` variable using the new methods you have created with `attr_accessor`
+
 
 **Note:**
 > attr_accessor is used when you want to have both a setter and getter defined for you. attr_writer is rarely used as there aren't many cases when you want a class to write to an instance variable but not have access to it. attr_reader is very commonly used to provide access to an instance variable but not allow it to be changed directly.
