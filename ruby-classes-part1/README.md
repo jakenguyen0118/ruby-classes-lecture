@@ -181,8 +181,11 @@ my_house.open_doors
 your_house.close_door
 ```
 
-#### On your own
+#### YOU TURN
 - Try calling `open_doors` on the `your_house` instance
+
+<hr>
+<br>
 
 <p align="center">
     <img src="images/classes1-img4.png" width="700">
@@ -232,7 +235,7 @@ p suresh_house.get_address
 ```
 
 
-#### On your own
+#### YOUR TURN
 - Can you set and get the owner of `casey_house`?
 
 
