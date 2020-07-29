@@ -294,7 +294,7 @@ class Person
     @name
   end
 
-  def name=(str)
+  def name(str)
     @name = str
   end
 end
