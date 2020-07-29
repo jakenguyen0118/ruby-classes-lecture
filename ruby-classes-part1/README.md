@@ -6,8 +6,7 @@
 
 - Work with Ruby classes
 - Use getter and setter methods in Ruby
-- Demonstrate how to implement OOP techniques such as inheritance and polymorphism
-- Employ the SOLID design patterns to follow OOP best practices
+- Demonstrate how to implement OOP techniques such as inheritance
 
 ## OOP
 
