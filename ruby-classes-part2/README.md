@@ -8,7 +8,7 @@
 - Describe what is inheritance is
 - Demonstrate and implement inheritance using Ruby
 - How to use super
-- Demonstrate how to implement OOP techniques such as inheritance 
+- Demonstrate how to implement OOP techniques such as inheritance and polymorphism
 
 
 ## Inheritance
