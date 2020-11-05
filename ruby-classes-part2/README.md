@@ -10,7 +10,6 @@
 - How to use super
 - Demonstrate how to implement OOP techniques such as inheritance and polymorphism
 
-
 ## Inheritance
 
 Instead of repeating method definitions across many similar classes, inheritance lets you move the common methods to a single class. You can then specify that other classes inherit from this class. The class with the common methods is referred to as the superclass, and the classes that inherit those methods are known as subclasses.
@@ -36,15 +35,8 @@ Each one of these classes is a type of vehicle. So we can create a new class, wh
 <img src="images/classes2-img3.jpg" width="450"> <br>
 <b>The Vehicle class is called the superclass of the other three classes. Car, Truck, and Motorcycle are called subclasses of Vehicle</b>
 </p>
-The syntax for using inheritance is to define the class name followed by the < symbol, followed by the parent class name. For example, our Car class inherits from the Vehicle class with the following syntax:
 
-```ruby
-class Car < Vehicle
-
-end
-```
-
-Now let's take a look at the fully functional example
+The syntax for using inheritance is to define the class name followed by the `<` symbol, followed by the parent class name. For example, our Car class inherits from the Vehicle class with the following syntax:
 
 ```ruby
 # This is our super class
@@ -56,17 +48,9 @@ end
 class Car < Vehicle
 
 end
-
-# Truck class inherit from Vehicle class
-class Truck < Vehicle
-
-end
-
-# Motorcycle class inherit from Vehicle class
-class Motorcycle < Vehicle
-
-end
 ```
+
+Let's add some code to `Vehicle` so the subclasses have something to inherit.
 
 ```ruby
 class Vehicle
@@ -124,7 +108,9 @@ So the Car class didn’t inherit the `@this_odometer` and `@this_gas_used` inst
 ## Class variables
 
 A class variable is shared among all instances of a class, so only one copy of a class variable exists for a given class.
-In Ruby, a class variable is prefixed by two at signs (`@@`). You must initialize a class variable before you use it.
+In Ruby, a class variable is prefixed by two at signs (`@@`).
+
+You must initialize a class variable before you use it.
 
 ```ruby
 class Student
@@ -146,14 +132,19 @@ suresh.print_info
 casey.print_info
 ```
 
-### YOUR TURN
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+
 - Add a Class variable to the `Vehicle` class called factory
 - Add a method called `print_factory` to the `Vehicle` class that prints "This vehicle was made in #{@@factory}"
 - Invoke `print_factory`on `your_truck`
 
+<hr>
+
 ## Class Methods
 
-A class method is a method that is associated with a class (and with a module in Ruby), not with an instance of a class. You can invoke class methods by prefixing the name of the method with the name of the class to which it belongs, such as to Math.sqrt(36). Class methods are also called static methods.
+A class method is a method that is associated with a class not with an instance of a class. You can invoke class methods by prefixing the name of the method with the name of the class to which it belongs, such as to Math.sqrt(36). Class methods are also called static methods.
 
 ```ruby
   def Employee.print
@@ -229,13 +220,18 @@ my_recipe = FishRecipe.new
 my_recipe.cook
 ```
 
-- Here the Child class (`FishRecipe`) inherits from the Parent class (`Recipe`).
-- The child class overrides the Parent class cook method.
-- Within the Child class cook method, we call super which will call the cook method from the Parent class Recipe.
+Here the Child class (`FishRecipe`) inherits from the Parent class (`Recipe`). The child class overrides the Parent class cook method.
 
-### YOUR TURN
+Within the Child class cook method, we call super which will call the cook method from the Parent class Recipe.
+
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+
 - Add a method to your `Car` class called `sound_horn` that extends the behavior of `sound_horn`
 - Invoke `sound_horn` on your instance of the `Car` class and make sure it works!
+
+<hr>
 
 ## Ta-da moment 🎉
 
@@ -253,6 +249,7 @@ class Car < Vehicle
 
 end
 ```
+
 Well, don't take my word for it!
 
 ```ruby
@@ -269,71 +266,95 @@ puts Vehicle.superclass
 
 ## attr_accessor
 
-attr_accessor is a keyword that tells Ruby to define "accessor" methods on the instance. Accessor methods are both the "get" and "set" method for the symbol passed in. In other words, they can be depicted as follows:
+`attr_accessor` is a keyword that tells Ruby to define `accessor` methods on the instance. Accessor methods are both the "get" and "set" method for the symbol passed in. In other words, they can be depicted as follows:
 
 Let's say you have a class Person.
 
 ```ruby
 class Person
-end
+  def initialize(name)
+    @name = name
+  end
 
-person = Person.new
-person.name # => no method error
-```
-
-Obviously we never defined method name. Let's do that.
-
-```ruby
-class Person
   def name
     @name # simply returning an instance variable @name
   end
 end
 
-person = Person.new
-person.name # => nil
-person.name = "Dennis" # => no method error
+person = Person.new('kenny')
+person.name # => 'kenny'
 ```
+
+But what if we wanted to reset the name after the instance was instantiated?
+
+```ruby
+person.name = "stack" # => no method error
+```
+
+That would error out.
 
 Aha, we can read the name, but that doesn't mean we can assign the name. Those are two different methods. The former is called reader and latter is called writer. We didn't create the writer yet so let's do that.
 
 ```ruby
 class Person
+  def initialize(name)
+    @name = name
+  end
+
   def name
     @name
   end
 
-  def name(str)
-    @name = str
+   def name=value
+    @name = value
   end
 end
 
-person = Person.new
-person.name = 'Dennis'
-person.name # => "Dennis"
+person = Person.new('kenny')
+person.name = 'stack'
+p person.name # => "stack"
 ```
+
 Awesome. Now we can write and read instance variable @name using reader and writer methods. Except, this is done so frequently, why waste time writing these methods every time? We can do it easier.
 
 ```ruby
 class Person
   attr_reader :name
   attr_writer :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  # def name
+  #   @name
+  # end
+
+  #  def name=value
+  #   @name = value
+  # end
 end
+
+person = Person.new('kenny')
+person.name = 'stack'
+p person.name # => "stack"
 ```
+
 Even this can get repetitive. When you want both reader and writer just use accessor!
+
 ```ruby
 class Person
   attr_accessor :name
 end
 
-person = Person.new
-person.name = "Dennis"
+person = Person.new('kenny')
+person.name = 'stack'
 person.name # => "Dennis"
 ```
 
 Works the same way! And guess what: the instance variable @name in our person object will be set just like when we did it manually, so you can use it in other methods.
 
-````ruby
+```ruby
 class Person
   attr_accessor :name
 
@@ -342,23 +363,23 @@ class Person
   end
 end
 
-person = Person.new
-person.name = "Dennis"
+person = Person.new('kenny')
+person.name = 'stack'
 person.greeting
-````
+```
 
-That's it. As you can see, attr_accessor defines both the getter and the setter. 
+That's it. As you can see, attr_accessor defines both the getter and the setter.
 
 
-### YOUR TURN
+
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+
 - Update the `Vehicle` class to have an `attr_accessor` method for `this_odometer`
 - Try setting and getting the `this_odometer` variable using the new methods you have created with `attr_accessor`
 
-
-**Note:**
-> attr_accessor is used when you want to have both a setter and getter defined for you. attr_writer is rarely used as there aren't many cases when you want a class to write to an instance variable but not have access to it. attr_reader is very commonly used to provide access to an instance variable but not allow it to be changed directly.
+<hr>
 
 ## Questions?
-<p>
-<img src="https://media.giphy.com/media/1jl173guBKkbvC03rQ/giphy.gif">
-</p>
+

@@ -10,40 +10,16 @@
 ## OOP
 
 One of the defining attributes of the Ruby programming language, in addition to readability, is how it implements object-oriented programming (OOP) techniques.
+
 OOP facilitates writing code in a way that allows you to think about, and model, the concepts that you are working with in your program.
 
-# Framing (5 min / 0:10)
-
-The earliest computer programs were written in an imperative style. The programs
-were a series of instructions that changed a program's state. Data was loaded
-into the computer, the program ran and manipulated the data, and some output was
-produced. The first JavaScript programs we wrote followed this imperative style.
-
-The way that we sometimes think about programming follows this imperative style.
-Have you ever heard of the example of writing a program for a computer to make a
-peanut-butter and jelly sandwich? Part of Harvard's intro to computer science
-class is having students write a program to tell a computer to make a
-peanut-butter and jelly sandwich.
-
-![Harvard CS 50 PB & J](https://i.ytimg.com/vi/YB62fSOX-PA/maxresdefault.jpg)
-
-The message is two part: programming is communicating instructions to a computer
-and these instructions should follow the format of a recipe. That
-programming-as-a-recipe style of thinking is imperative programming and it's
-wrong. That's not what we want to do. We don't have time for that.
-
-Large applications written in an imperative style become confusing to build and
-maintain. To consider the current state of our application, we need to consider
-all of code that has run so far. That becomes increasingly difficult as the
-application grows.
-
-> [Good article explaining the difference between imperative and declarative programming](https://tylermcginnis.com/imperative-vs-declarative-programming/)
-
-## What is Object Oriented Programming (10 min / 0:20)
+## What is Object Oriented Programming
 
 Object oriented programming is a paradigm of Software Engineering that attempts
 to solve the problems of building applications imperatively by organizing
-applications into discrete units, called objects. Rather than imperatively
+applications into discrete units, called objects.
+
+Rather than imperatively
 describe everything we want our application to do, in OOP we define objects that
 represent our understanding of the different parts of our application, what
 information describes those parts and what behavior those parts have.
@@ -82,47 +58,46 @@ modeling the entire program as the interactions of these machines.
 
 ## Object
 
-In object-oriented programming, the fundamental unit is the object. An object is an entity that serves as a container for data and also controls access to the data. Associated with an object is a set of attributes, which are essentially no more than variables belonging to the object. Also associated with an object is a set of functions that provide an interface to the functionality of the object, called methods.
+In object-oriented programming, the fundamental unit is the object. An object is an entity that serves as a container for data and also controls access to the data. Associated with an object are:
+
+- a set of attributes, which are essentially no more than variables belonging to the object
+- a set of functions that provide an interface to the functionality of the object, called methods.
 
 ## Classes
 
-Classes are the foundation of object-oriented programming (OOP). Since everything in Ruby is an object, even a basic Hello, World! example makes use of OOP.
-In other words, classes are abstract templates for objects. You can also say that objects are instances of classes.
-Classes contain the template for a set of behaviors (such as methods) and data (such as variables).
+Classes are the foundation of object-oriented programming (OOP) and are abstract templates for objects. You can also say that objects are instances of classes.
+
+Classes contain the template for a set of behaviors (such as methods) and data (such as variables).  Here are 4 examples of how classes are constructed in JavaScript, Ruby, Python and PHP.
+
+
+
+<p align="center">
+    <img src="https://i.imgur.com/Hfcqgc0.png" width="800">
+    <br>
+</p>
+
+
+The use case for working Classes to to create a `blue print` of some data model.  Architects use this approach all the time when they design a structure such as a house. 
 
 <p align="center">
     <img src="images/classes1-img1.jpg" width="400">
     <br>
-    <b>Class is a blue print</b>
 </p>
 
-Let's imagine that you're building a house. One of the first tasks you'd most likely do is build a blueprint for the house. This blueprint would contain attributes and features of the house, such as these:
+This blueprint would contain essentially, every attribute/feature of the house, such as:
 
 - The dimensions for each room
 - How the plumbing will flow
-- Essentially, every attribute/feature of the house
-
-Now let me ask a dumb question. Is the blueprint of the house the actual house? No, it simply lists out the attributes and design elements for how the home will be created.
+- Where the light switches are located 
 
 ## Instance
 
-So after the blueprint is completed, the actual home can be built. Dare I say that the home can be instantiated?
+So after the blueprint is completed, homes of identical dimensions and specifications can be built.
 
 <p align="center">
-    <img src="images/classes1-img2.jpg" width="300">
+    <img src="https://i.imgur.com/B31jgv8.jpg" width="600">
     <br>
-    <b>Instance of a class</b>
 </p>
-
-<p align="center">
-    <img src="images/classes1-img3.jpg" width="300">
-    <br>
-    <b>Another instance of a class</b>
-</p>
-
-## Instance methods
-
-Instance methods are methods that are available on a specific instance or object of a class. Instances have states that are held in instance variables. As you would expect, instance methods have access to these instance variables.
 
 ## Creating a class
 
@@ -130,14 +105,26 @@ Here is an example of how we can create a House class to do this:
 
 ```ruby
 class House
-  
+
 end
 ```
 
+## Instance methods
+
+Since each `instance` of the house needs to perform the same base functionality, `instance methods` are methods are created on the base class and then available on any instantiated instances. 
+
+Instances have states that are held in instance variables. As you would expect, instance methods have access to these instance variables.
+
+
 ## Creating methods
 
-Here we've created the base template for a house by using the class keyword and have given it the name `House`.
-Based on what we've learned so far, we can tell right off the bat that we have a `House` class with the following methods: `set_address`, `open_door`, and `close_door`.
+Based on what we know about houses we can assume that the `House` class will have the following methods: 
+
+- `set_address`
+- `open_door`
+- `close_door`
+
+Let's add those methods. 
 
 ```ruby
 class House
@@ -146,7 +133,7 @@ class House
   end
 
   def open_doors
-    p "open door"
+      p "open door"
   end
 
   def close_door
@@ -157,142 +144,138 @@ end
 
 ## Instantiation of an object
 
-So after the blueprint is completed, the actual home can be built. Dare I say that the home can be **instantiated**?
+With the `House` class created we can now `instantiate` a new instances of the `House`.
 
 ```ruby
-class House
-  def set_address
-    p "setting address"
-  end
-
-  def open_doors
-    p "open door"
-  end
-
-  def close_door
-    p "close door"
-  end
-end
-
 my_house = House.new
-your_house = House.new
-
-my_house.open_doors
-your_house.close_door
 ```
 
-#### YOU TURN
-- Try calling `open_doors` on the `your_house` instance
+Add call the `open_door` method.
+
+```ruby 
+my_house.open_door
+```
 
 <hr>
-<br>
 
-<p align="center">
+:question: Where else have we used `.new` before in Ruby?
+
+
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+
+- Instantiate a new instance of the House class called `your_house`
+- Try calling `close_door` on the `your_house` instance
+
+<hr>
+
+<!-- <p align="center">
     <img src="images/classes1-img4.png" width="700">
     <br>
     <b>Under the hood of our House class</b>
-</p>
+</p> -->
 
 ## Instance variables
 
-As the name suggests, instance variables are available to a particular instance. There is a specific syntax to set instance variables, you need to use the `@` sign to define a variable.
+`instance variables` are available to a particular instance and are created using the `@` sign when we first define the variable.
 
-A local variable that is defined inside one method, for example, cannot be accessed by another method. In order to get around this limitation, we can use instance variables inside our Ruby classes.
-
-An instance variable is a variable that is accessible in any instance method in a particular instance of a class.
+An `instance variable` is a variable that is accessible in any instance method in a particular instance of a class.
 
 ```ruby
 class House
   # instance variables; unique data for each object: casey and suresh
-  @this_owner_name = ''
   @this_address = ''
 
   def set_address(address)
     @this_address = address
   end
 
-  def set_owner(owner)
-    @this_owner_name = owner
-  end
-
-  def get_owner
-    @this_owner_name
-  end
-
   def get_address
     @this_address
   end
+
+  #...previous methods
 end
 
 casey_house = House.new
 casey_house.set_address("111, New York, NY")
-
-suresh_house = House.new
-suresh_house.set_address("444, New York, NY")
-
 p casey_house.get_address
-p suresh_house.get_address
+
 ```
 
+<hr>
 
-#### YOUR TURN
-- Can you set and get the owner of `casey_house`?
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
 
+Update the `House` class to include the following instance variable and set it to an empty string:
+-  this_owner_name
 
-## Constructors
+Then create the following getter and setter methods
 
-In most object-oriented languages, there is a method that’s automatically invoked when an object of that class is created.
-Other languages call such methods **constructors**, but Ruby also calls them initializers because they always have the name initialize. (In Java and C++, a constructor is a method with the same name as the class name.)
+- set_owner
+- get_owner
+
+Instantiate a new instance of the house with your name and use the `set_owner` method to set the owner to your name.  Then use the `get_owner` method to get that value. 
+
+<hr>
+
+## Initializers
+
+There are times when you want to instantiate a new instance and set values at that time. Ruby does this using an **initializer** method. 
 
 ```ruby
 class ClassName
-  def initialize
+  def initialize(arg1, arg2)
     # do something
   end
 end
 ```
 
-This `initialize` method will automatically be invoked when an object of that class type is created using `ClassName.new`. Normally the initialize method is used to assign values to the class’ main attributes, in which case it’s written to accept arguments:
+This `initialize` method will automatically be invoked when an object of that class type is created using `ClassName.new`.  
 
-# Variable Scope in Ruby
-
-## Local Variables
-
-A local variable has a local scope or context. If defined within a method, for example, its scope is kept within that method. Local variable names must begin with either a lowercase letter or an underscore (_), and must not be prefixed with `@`, `@@`, or `$` because they are reserved for other types of variables. Following are a few examples of local variables:
+Let's update the initialize 
 
 ```ruby
-x = 1.0    # x is a Float
-y = "Yes"  # y is a String
-_temp = 16 # _temp is a Integer
+class House
+  def initialize(address)
+    @this_address = address
+  end
+
+  def set_address(address)
+    @this_address = address
+  end
+
+  def get_address
+    @this_address
+  end
+
+  #...previous methods
+end
 ```
 
-## Instance Variables
-
-An instance variable belongs to a particular instance of a class, hence the name. It can only be accessed from outside that instance via an accessor (helper) method. Instance variables are always prefixed with a single at sign (`@`), as in `@hello`.
-
-## Class Variables
-
-A class variable is shared among all instances of a class. Only one copy of a class variable exists for a given class. It is prefixed by two at signs (`@@`), such as `@@times`. You have to initialize (declare a value for) a class variable before you use it.
-
-## Global Variables
-
-Global variables are globally available to a program, inside any structure. Their scope is the whole program. They are prefixed by a dollar sign (`$`), such as `$amount`.
-
-## Constants
-
-Constant names must begin with a capital letter (Suresh) and by convention frequently use all capitals (SURESH), making them easy to spot. Class names, for example, are constants. As their name suggests, constants are not expected to have their values changed after initial assignment. You can reassign a value to a constant, but Ruby will generate a warning if you do. Second, and more importantly, since constants refer to objects, the contents of the object to which the constant refers might change without Ruby generating a warning. Thus, Ruby constants are called mutable because although a constant is only expected to refer to a single object throughout the program, the value of that object may vary. Finally, constants must have a value assigned to them to exist.
-
-## Parallel Variable Assignment
-
-With parallel assignment, you can assign several values to several variables in a single expression, based on order. A list of variables, separated by commas, can be placed to the left of the equals sign, with the list of values to assign them on the right. Here are a few examples:
+Now we can set the address when it is instantiated.
 
 ```ruby
-name, grade, gpa = 'Suresh', 89, 3.6
-a, b, c = "cash", 1.99, 100
+casey_house = House.new("111, Queens, NY")
+p casey_house.get_address
 ```
+
+We still have access to change the address.
+
+```ruby
+casey_house.set_address("222, Bronx, NY")
+p casey_house.get_address
+```
+
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
+
+- Add a new new variable called num_of_rooms to the `initialize` method
+- Add the supporting getter/setter methods set_num_of_rooms and get_num_of_rooms
+- instantiate your_house again and pass in both address and the number of rooms you want in your house
+
+<hr>
 
 ## Questions?
-
-<p>
-<img src="https://media.giphy.com/media/26xBI73gWquCBBCDe/giphy.gif">
-</p>
