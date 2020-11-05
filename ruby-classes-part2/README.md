@@ -217,6 +217,7 @@ end
 class FishRecipe < Recipe
   def cook
     super
+    p 'But because its fish perhaps 5-10min more'
   end
 end
 
@@ -224,7 +225,7 @@ my_recipe = FishRecipe.new
 my_recipe.cook
 ```
 
-Here the Child class (`FishRecipe`) inherits from the Parent class (`Recipe`). The child class overrides the Parent class cook method.
+Here the Child class (`FishRecipe`) inherits from the Parent class (`Recipe`). The child class inherits and extends the Parent class cook method.
 
 Within the Child class cook method, we call super which will call the cook method from the Parent class Recipe.
 
@@ -232,7 +233,7 @@ Within the Child class cook method, we call super which will call the cook metho
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
 
-- Add a method to your `Car` class called `sound_horn` that extends the `Vehicle` `sound_horn` method and adds another like of text
+- Add a method to your `Car` class called `sound_horn` that extends the `Vehicle` `sound_horn` method and adds another line of text
 - Invoke `sound_horn` on your instance of the `Car` class and make sure both lines of text work works!
 
 <hr>
@@ -309,11 +310,12 @@ class Person
 end
 
 person = Person.new('kenny')
+p person.name # => "kenny"
 person.name = 'stack'
 p person.name # => "stack"
 ```
 
-Even this can get repetitive. When you want both reader and writer just use accessor!
+Even this can get repetitive. When you want both a reader and writer just use `attr_accessor`.
 
 ```ruby
 class Person

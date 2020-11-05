@@ -185,14 +185,14 @@ An `instance variable` is a variable that is accessible in any instance method i
 ```ruby
 class House
   # instance variables; unique data for each object: casey and suresh
-  @this_address = ''
+  @address = ''
 
   def set_address(address)
-    @this_address = address
+    @address = address
   end
 
   def get_address
-    @this_address
+    @address
   end
 
   #...previous methods
@@ -209,7 +209,7 @@ p casey_house.get_address
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
 
 Update the `House` class to include the following instance variable and set it to an empty string:
--  this_owner_name
+-  owner_name
 
 Then create the following getter and setter methods
 
@@ -239,15 +239,15 @@ Let's update the initialize
 ```ruby
 class House
   def initialize(address)
-    @this_address = address
+    @address = address
   end
 
   def set_address(address)
-    @this_address = address
+    @address = address
   end
 
   def get_address
-    @this_address
+    @address
   end
 
   #...previous methods
