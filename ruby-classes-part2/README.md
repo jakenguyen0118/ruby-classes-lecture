@@ -85,25 +85,29 @@ class Truck < Vehicle
 
 end
 
-# Motorcycle class inherit from Vehicle class
-class Motorcycle < Vehicle
-
-end
-
 # Our first instance
-my_car = Car.new(10000, 45)
+my_car = Car.new(10000, 100)
 my_car.accelerate
 my_car.sound_horn
 my_car.check_mileage
-
-# Our second instance
-your_truck = Truck.new(22964, 726)
-your_truck.accelerate
-your_truck.sound_horn
-your_truck.check_mileage
 ```
 
-So the Car class didn’t inherit the `@this_odometer` and `@this_gas_used` instance variables...it inherited the `odometer=` and `gas_used=` instance methods, and the methods created the instance variables!
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+
+Create an new instance of the Truck class called `your_truck` and assign it the following:
+
+- odometer = 20000
+- gas_used = 200
+
+Then call the following methods:
+
+- accelerate
+- sound_horn
+- check_mileage
+
+<hr>
 
 ## Class variables
 
@@ -125,26 +129,26 @@ class Student
   end
 end
 
-suresh = Student.new("Suresh")
-casey = Student.new("Casey")
-
+casey = Student_.new("Casey")
 suresh.print_info
-casey.print_info
+
 ```
 
 <hr>
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
 
-- Add a Class variable to the `Vehicle` class called factory
-- Add a method called `print_factory` to the `Vehicle` class that prints "This vehicle was made in #{@@factory}"
-- Invoke `print_factory`on `your_truck`
+- Add a Class variable to the `Vehicle` class called `factory`
+- Add a method called `print_factory` to the `Vehicle` class that prints `This vehicle was made in #{@@factory}`
+- Invoke `print_factory` on `your_truck`
 
 <hr>
 
 ## Class Methods
 
-A class method is a method that is associated with a class not with an instance of a class. You can invoke class methods by prefixing the name of the method with the name of the class to which it belongs, such as to Math.sqrt(36). Class methods are also called static methods.
+A class method is a method that is associated with a class not with an instance of a class. You can invoke class methods by prefixing the name of the method with the name of the class to which it belongs, such as to Math.sqrt(36). 
+
+Class methods are also called static methods.
 
 ```ruby
   def Employee.print
@@ -228,41 +232,10 @@ Within the Child class cook method, we call super which will call the cook metho
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
 
-- Add a method to your `Car` class called `sound_horn` that extends the behavior of `sound_horn`
-- Invoke `sound_horn` on your instance of the `Car` class and make sure it works!
+- Add a method to your `Car` class called `sound_horn` that extends the `Vehicle` `sound_horn` method and adds another like of text
+- Invoke `sound_horn` on your instance of the `Car` class and make sure both lines of text work works!
 
 <hr>
-
-## Ta-da moment 🎉
-
-Even if you do specify a superclass for your class, that superclass (`Vehicle`) probably inherits from Object. That means almost every Ruby object, directly or indirectly, has Object as a superclass!
-Ruby does this because the Object class defines dozens of useful methods that almost all Ruby objects need. This includes a lot of the methods that we’ve been calling on objects so far:
-
-```ruby
-class Vehicle < Object
-
-end
-```
-
-```ruby
-class Car < Vehicle
-
-end
-```
-
-Well, don't take my word for it!
-
-```ruby
-class Vehicle
-
-end
-
-class Car < Vehicle
-
-end
-
-puts Vehicle.superclass
-```
 
 ## attr_accessor
 
@@ -382,4 +355,3 @@ That's it. As you can see, attr_accessor defines both the getter and the setter.
 <hr>
 
 ## Questions?
-
